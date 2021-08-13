@@ -1,0 +1,96 @@
+<!---
+<app-home [custTitle]="Title" [parentData]="parent" (onDisplay)="display()" (custDisplay)="displayName($event)" (childData)="child=$event"></app-home>
+--->
+<!--CUSTOM PROPERTY BINDING - DATA FROM PARENT TO CHILD SUB COMPONENT   ---->
+<!--CUSTOM EVENT BINDING - DATA FROM CHILD TO PARENT SUB COMPONENT   ---->
+
+<div class="container" >
+    <div class="row" >
+        <div class="col-12 bg-info">
+            <router-outlet></router-outlet>
+            <nav>
+                <a routerLink="/home" routerLinkActive="active" class="btn btn-secondary mr-2">HOME PAGE </a> 
+                <a routerLink="/product" routerLinkActive="active" class="btn btn-secondary mr-2">PRODUCT PAGE </a>
+                <a routerLink="/directive" routerLinkActive="active" class="btn btn-secondary mr-2">DIRECTIVE PAGE </a>
+                <a routerLink="/templatedriven" routerLinkActive="active" class="btn btn-secondary mr-2">TEMPLATE FORM </a>
+
+            </nav>
+            <router-outlet></router-outlet>
+            
+ <!---<h3>Type something for child component</h3>         
+ <input type="text" name="parent" [(ngModel)]="parent">  
+ <p>{{dname}}</p>
+ <br>
+<p>Name from Child Page - {{dname}}</p>
+<h3>Data from Child</h3>
+<p>{{child}}</p>
+
+
+<!--DATA BINDING
+<!--STRING INTERPOLATION
+<h1>HELLO ANIMESH HERE</h1>
+<p>{{title.toUpperCase()}}</p>
+<button id="btn">CLick Here</button>
+<h2 class="h2">Just a diff case</h2>
+<input type="text" value="{{name}}">
+<br>
+<img src="{{imgurl}}" alt="cloudimage" style="border-radius:70% ; width: 1000px ; height: 30%;" class="ml-5">
+<br>
+
+<router-outlet></router-outlet>
+
+<!--PROPERTY BINDING
+<!--input type="text" [value]="name">
+<img [src]="imgurl" [alt]="altTxt">
+<img bind-src="imgurl" bind-alt="altTxt"-->
+
+<!--EVENT BINDING
+<button (click)="display()" class="btn btn-info">CLICK</button>
+<button (dbclick)="display1()" class="btn btn-success">Click2</button>
+
+<!--2 WAY DATA BINDING
+<input type="text" name="name" [(ngModel)]="name">
+<p>{{name}}</p>
+
+<!--CLASS BINDING
+<div class="gcolor border1">
+    <p>
+        Text HERE
+    </p>
+</div>
+<div [class.gcolor]="isTrue" [class.border1]="second">
+    CLASS BINDING TEXT GOES HERE
+</div>
+<!--INLINE STYLE IN CLASS BINDING
+<div [style.color]="applyBlue?'blue':'orange'">
+    <p>STYLE BINDING</p>
+</div>
+<div [style.color]="rcolor" [style.background-color]="bg" [style.padding]="space" >
+    <p>INLINE STYLE</p>
+</div>
+
+<h2>PIPE TRANSFORMATION</h2>
+<p>{{title  | uppercase}}</p>
+
+<p>{{title  | slice:11}}</p>
+<p>{{title  | slice:0:7}}</p>
+
+<p>{{num | number: '1.2-3'}}</p>
+<p>{{num | number: '2.4'}}</p>
+<p>{{num | number: '4.4-5'}}</p>
+
+<h4>CURRENCY</h4>
+<p>{{num | currency:'INR'}}</p>
+<p>{{num | currency:'GBP'}}</p>
+<p>{{num | currency:'EUR'}}</p>
+<p>{{num | currency:'USD'}}</p>
+
+<h4>DATE</h4>
+<p>{{d}}</p>
+<p>{{d | date:'fullDate'}}</p>
+<p>{{d | date:'mediumDate'}}</p>
+<p>{{d | date:'shortDate'}}</p>------->
+</div>
+</div>
+</div>
+

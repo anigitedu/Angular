@@ -1,0 +1,21 @@
+
+<div class="container" >
+    <div class="row" >
+        <div class="col-12 bg-warning">
+            
+            <app-product (custDisplay)="displayName($event)" (prod1Data)="prod1=$event"></app-product>
+            <h3>Input from Prod/Child</h3>
+            <p>{{prod1}}</p>
+            <p>app-home declared above app-root</p>
+            <h2>HOME</h2>
+            <P>{{home}}</P>
+            <p>{{custTitle}}</p>
+            <p>{{parentData}}</p>
+            <button (click)="fireDisplay()" class="btn btn-light mb-3">CHILD TO PARENT</button>
+            <button (click)="fireDisplayName('ANIMESH')" class="btn btn-light mb-3">CHILD TO PARENT DisplayNAme</button>
+
+            <h3>Type for PARENT</h3>
+            <input type="text" name="child" #childValue (keyup)="fireChildData(childValue.value)" class="form-control input-lg mb-3">
+        </div>
+    </div>
+</div>

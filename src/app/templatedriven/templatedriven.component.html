@@ -1,0 +1,72 @@
+<h1>TEMPLATE DRIVEN</h1>
+<form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value);userForm.reset()">
+    <div class="form-group">
+        <label for="fname">Name: </label>
+        <input type="text" #nameref="ngModel" name="fname" id="fname" class="form-control" required minlength="3" maxlength="20" ngModel>
+        <!--p>{{nameref.className}}</p-->
+        <!---div [hidden]="nameref.valid || nameref.pristine || nameref.untouched" class="alert alert-danger">
+            Please Enter Name
+        </div-->
+        <div *ngIf="nameref.errors && (nameref.dirty || nameref.touched)" class="alert alert-danger">
+            <div [hidden]="!nameref.errors">
+                Please Enter Name
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="email">email: </label>
+        <input type="email" #emailref="ngModel" name="email" id="email"
+        pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"   class="form-control" required ngModel>
+        <div *ngIf="emailref.errors && (emailref.dirty || emailref.touched)" class="alert alert-danger">
+            <div [hidden]="!emailref.errors.pattern">
+                Please Enter valid email id
+            </div>
+            <div [hidden]="!emailref.errors.required">
+                Please enter an email id
+            </div>
+        </div>
+    </div>
+    
+    <div ngModelGroup="address">
+            <div class="form-group">
+                <label for="city">City: </label>
+                <select name="city" #cityref="ngModel" id="city" class="form-control" required ngModel>
+                    <option value="" selected disabled>Select City</option>
+                    <option *ngFor="let c of city" [value]="c">{{c}}</option>
+                </select>
+                <div *ngIf="cityref.errors && (cityref.dirty || cityref.touched)" class="alert alert-danger">
+                    <div [hidden]="!cityref.errors.required">
+                        Please Select a City
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="zip">ZIP</label>
+                <input type="text" #zipref="ngModel" name="zip" id="zip" class="form-control" pattern="^[1-9][0-9]{5}$" required ngModel>
+                <div *ngIf="zipref.errors && (zipref.dirty || zipref.touched)" class="alert alert-danger">
+                    <div [hidden]="!zipref.errors.required">
+                        Please Enter a zip code
+                    </div>
+                    <div [hidden]="!zipref.errors.pattern">
+                        Please Enter a 6 digit code
+                    </div>
+                </div>
+            </div>
+    </div>
+    <input type="submit" value="Submit" [disabled]="userForm.form.invalid" class="btn btn-success">
+</form>
+<br>
+<table class="table table-dark">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>City</th>
+        <th>ZIP</th>
+    </tr>
+    <tr *ngFor="let i of info">
+        <td>{{i.fname}}</td>
+        <td>{{i.email}}</td>
+        <td>{{i.address.city}}</td>
+        <td>{{i.address.zip}}</td>
+    </tr>
+</table>

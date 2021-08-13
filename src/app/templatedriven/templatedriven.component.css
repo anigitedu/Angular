@@ -1,0 +1,9 @@
+input.ng-valid,select.ng-valid{
+    border-left:8px solid green ;
+}
+input.ng-invalid,select.ng-invalid{
+    border-left: 8px solid red;
+}
+input.ng-untouched,select.ng-untouched{
+    border:4px solid purple ;
+}

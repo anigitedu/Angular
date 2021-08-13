@@ -1,0 +1,13 @@
+<div class="container" >
+    <div class="row" >
+        <div class="col-12 bg-primary">
+            <p>{{prod}}</p>
+            <p>{{custHome}}</p>
+            <button (click)="fireDisplayName('ANIMESH')" class="btn btn-light mb-3">CHILD TO PARENT DisplayNAme</button>   
+            
+            <h3>Type for HOME/PARENT</h3>
+            <input type="text" name="prod1" #childValue (keyup)="fireprod1Data(childValue.value)" class="form-control  mb-4">
+
+             </div>
+    </div>
+</div>

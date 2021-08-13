@@ -1,0 +1,95 @@
+<div class="container" >
+    <div class="row" >
+        <div class="col-12 bg-info">
+
+    <H1 style="color: blueviolet;">DIRECTIVE HERE</H1>
+    <p>{{color}}</p>
+    <p>{{color[2]}}</p>
+        <table class="table table-active bg-light table-bordered">
+            <thead class="thead-dark" >
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th> 
+                </tr> 
+            </thead>
+            <tr *ngFor="let cust of customer">                <!---cust is declared for customer FOR LOOP-->
+                <td>{{cust.id}}</td>
+                <td>{{cust.name}}</td>
+            </tr>
+        </table>
+
+        
+        <div [ngSwitch]="1">                             <!--Switch Case-->
+            <p *ngSwitchCase="'1'">Customer 1 </p>
+            <p *ngSwitchCase="'2'">Customer 2 </p>
+            <p *ngSwitchDefault>NO Customer available</p>
+        </div>
+         
+        <div *ngIf="showElement">Show this element if True</div> 
+        <br>
+
+        <button (click)="toggle()" class="btn btn-dark">TOGGLE NgClass </button>
+            <div [ngSwitch]="customer">                             <!--Switch Case Toggle-->
+                <p *ngSwitchCase="'1'">Customer 1 </p>
+                <p *ngSwitchCase="'2'">Customer 2 </p>
+                <p *ngSwitchDefault>NO Customer available</p>
+            </div>
+
+        <!--ng-container *ngIf="num1>num2 || num1==num2; else elseblock">
+            <p>Text to show</p>
+        </ng-container>
+        <ng-template #elseblock>
+            Else part is printed if num1 is smaller than num2
+        </ng-template--->
+
+        <ng-container *ngIf="num1>num2; else big">
+            <p>Num1 is greater</p>
+        </ng-container>
+        <ng-template #big>
+            <ng-container *ngIf="num1<num2; else equal">
+                <p>Num1 is smaller</p>
+            </ng-container>
+        </ng-template>
+        <ng-template #equal>
+            <ng-container *ngIf="num1==num2; else invalid">
+                <p>Num1 is equal to Num2</p>
+            </ng-container>
+        </ng-template>
+        <ng-template #invalid>
+            <p>Invalid</p>
+        </ng-template>
+
+        <h4>THEN in IF:</h4>                                         <!--THEN in IF - isLoggedin:boolean=true;-->
+            <ng-container *ngIf="isLoggedIn; then login; else logout">
+            </ng-container>
+            <ng-template #login>
+                <p class="blockquote-footer 5rem">Hello Admin</p>
+            </ng-template>
+            <ng-template #logout>
+                <p>Please Sign In</p>
+            </ng-template>
+
+            <h3>Attribute Directive</h3>
+            <!--changes the behaviour of dom element
+            ngClass, ngStyle
+            ngStyle - inline style
+            ngClass- apply multiple class to html element-->
+
+            <div class="classOne classTwo">
+                content goes here
+            </div>
+           
+            <div [ngClass]="{classOne:cone, classTwo:ctwo}">
+                NgClass paragraph
+            </div>
+
+            <p style="font-size:25px;font-style:italic;background-color:pink;margin-top:10px;">
+                Inline style Normal</p>
+                
+                <p [ngStyle]="{'font-size':size,'font-style':style,  'padding':space}">
+                    Inline style using ngStyle paragraph
+                </p>
+
+</div>
+</div>
+</div>
